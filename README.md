@@ -7,7 +7,7 @@ Este é um projeto de console application em C# que simula um sistema completo d
 ## 💻 Tecnologias Utilizadas
 
 * **Linguagem:** C#
-* **.NET Framework:** (Especifique a versão que você está usando, ex: .NET 8.0, .NET 6.0)
+* **.NET Framework:** .NET 10.0
 * **Estrutura:** Console Application
 
 ## 🚀 Funcionalidades Principais
@@ -51,22 +51,6 @@ O projeto segue o princípio de arquitetura em camadas (Models, Controllers), fa
 | `Controllers/UserController.cs` | Lógica de negócios para Autenticação (Registro, Login, Hashing de Senha). |
 | `Controllers/LivroController.cs` | Lógica de negócios para o Acervo (Cadastro, Listagem, Aluguel e Devolução). |
 
-## 🛠️ Como Executar o Projeto
-
-Para rodar este projeto, você precisa ter o SDK do .NET instalado em sua máquina.
-
-1.  **Clone o repositório:**
-    ```bash
-    git clone [LINK DO SEU REPOSITÓRIO]
-    cd nome-do-projeto
-    ```
-
-2.  **Execute a aplicação:**
-    ```bash
-    dotnet run
-    ```
-    O menu interativo será iniciado no console.
-
 ## 📝 Próximos Passos & Melhorias de Infraestrutura
 
 As seguintes melhorias estão planejadas para a infraestrutura do projeto:
@@ -76,7 +60,3 @@ As seguintes melhorias estão planejadas para a infraestrutura do projeto:
 * **Validação:** Implementar validações robustas de entrada de dados (e-mail, formato de senha, campos obrigatórios).
 
 ---
-
-<div align="center">
-  **Desenvolvido por: [Seu Nome/GitHub User]**
-</div>
