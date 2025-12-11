@@ -35,7 +35,7 @@ class Program
                     controller.LoginUsuario(usuarios);
                     break;
                 default:
-                    Console.WriteLine("Encerrando o sistema");
+                    Console.WriteLine("Opção inválida ! Forneça uma opção válida para acessar o sistema");
                     break;
             }
 
