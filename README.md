@@ -1,6 +1,4 @@
-# Biblioteca
-
-# 📚 Sistema de Gerenciamento Básico de Usuários (Biblioteca)
+# 📚 Sistema de Biblioteca
 
 Este é um projeto de console application em C# desenvolvido como um sistema de registro e login de usuários. O objetivo principal é demonstrar conceitos fundamentais de desenvolvimento, como **Orientação a Objetos (POO)**, **Separação de Preocupações (MVC/Camadas)** e **Boas Práticas de Segurança** (Hashing de Senhas).
 
