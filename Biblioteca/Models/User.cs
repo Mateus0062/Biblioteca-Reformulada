@@ -14,8 +14,7 @@ namespace Biblioteca.Models
 
         public User()
         {
-            this.Id = _proximoId;
-            _proximoId++;
+            Id = _proximoId++;
         }
     }
 }
