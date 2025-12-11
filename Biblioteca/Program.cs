@@ -6,6 +6,7 @@ class Program
     static void Main(string[] args)
     { 
         UserController controller = new UserController();
+        List<Livro> livros = new List<Livro>();
         List<User> usuarios = new List<User>();
         bool rodando = true;
 
