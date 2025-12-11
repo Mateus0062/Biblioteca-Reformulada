@@ -50,7 +50,3 @@ Este projeto é uma base. As seguintes melhorias são planejadas:
 * **Recursos da Biblioteca:** Implementar a lógica de aluguel de livros, listagem de acervo, etc.
 
 ---
-
-<div align="center">
-  Feito com ❤️ em C#
-</div>
