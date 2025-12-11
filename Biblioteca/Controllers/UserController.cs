@@ -1,6 +1,4 @@
 ﻿using Biblioteca.Models;
-using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -41,22 +39,23 @@ namespace Biblioteca.Controllers
 
             Console.WriteLine("Digite sua Senha: ");
             string senha = Console.ReadLine() ?? string.Empty;
+            string SenhaHashDigitada = CalculateMD5Hash(senha);
 
-            var UserEncontrado = usuarios.FirstOrDefault(s => s.Email == email && s.Password == senha);
+            var UserEncontrado = usuarios.FirstOrDefault(s => s.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && s.Password == SenhaHashDigitada);
 
-            if (UserEncontrado.Email == "admin@gmail.com" && UserEncontrado.Password == "SenhaAdmin")
+            if (UserEncontrado == null)
             {
-                Console.WriteLine($"Olá, {UserEncontrado.UserName} ! Redirecionando para o painel de Administrador");
-            } else
-            {
-                if (UserEncontrado != null)
+                if (UserEncontrado.Role == UserRole.Admin)
                 {
-                    Console.WriteLine($"Seja bem vindo! {UserEncontrado.UserName}\n");
-                    Console.WriteLine("Redirecionando para o painel de aluguel de livros! ");
+                    Console.WriteLine($"\nOlá, {UserEncontrado.UserName} ! Redirecionando para o painel de Administrador");
                 } else
                 {
-                    Console.WriteLine("Usuário não encontrado");
+                    Console.WriteLine($"\nSeja bem vindo ! {UserEncontrado.UserName}");
+                    Console.WriteLine("Redirecionando para o painel de aluguel de livros!");
                 }
+            } else
+            {
+                Console.WriteLine("\nUsuário não encontrado");
             }
         }
         
