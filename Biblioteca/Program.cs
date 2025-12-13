@@ -6,11 +6,7 @@ class Program
     static void Main(string[] args)
     { 
         UserController controller = new UserController();
-        List<Livro> livros = new List<Livro>();
-        List<User> usuarios = new List<User>();
         bool rodando = true;
-
-        InicializarAdmin(usuarios, controller);
 
         while (rodando == true)
         {
@@ -30,31 +26,15 @@ class Program
                     rodando = false;
                     break;
                 case 1:
-                    controller.RegistrarUsuario(usuarios);
+                    controller.RegistrarUsuario();
                     break;
                 case 2:
-                    controller.LoginUsuario(usuarios);
+                    controller.LoginUsuario();
                     break;
                 default:
                     Console.WriteLine("Opção inválida ! Forneça uma opção válida para acessar o sistema");
                     break;
             }
-
-            foreach (var i in usuarios)
-            {
-                Console.WriteLine($"Id: {i.Id}\n Name: {i.UserName}\n Email: {i.Email}\n Senha: {i.Password}");
-            }
         }
-    }
-
-    static void InicializarAdmin(List<User> usuarios, UserController controller)
-    {
-        usuarios.Add(new User
-        {
-            UserName = "Admin",
-            Email = "admin@biblioteca.com",
-            Password = controller.CalculateMD5Hash("SenhaAdmin123"),
-            Role = UserRole.Admin
-        });
     }
 }

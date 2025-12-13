@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Models;
+using Biblioteca.Painel;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -6,7 +7,20 @@ namespace Biblioteca.Controllers
 {
     public class UserController
     {
-        public void RegistrarUsuario(List<User> usuarios)
+        private List<User> _users = new List<User>();
+
+        public void InicializaAdmin()
+        {
+            _users.Add(new User
+            {
+                UserName = "Admin",
+                Email = "admin@biblioteca.com",
+                Password = CalculateMD5Hash("SenhaAdmin123"),
+                Role = UserRole.Admin
+            })
+        }
+
+        public void RegistrarUsuario()
         {
             Console.WriteLine("Digite seu Nome: ");
             string nome = Console.ReadLine()  ?? string.Empty;
@@ -14,7 +28,7 @@ namespace Biblioteca.Controllers
             Console.WriteLine("Digite seu E-mail: ");
             string email = Console.ReadLine() ?? string.Empty;
 
-            if (usuarios.Any(cadastrado => cadastrado.Email == email))
+            if (_users.Any(cadastrado => cadastrado.Email == email))
             {
                 Console.WriteLine("Usuário já cadastrado. Informe um outro e-mail válido.");
                 return;
@@ -23,7 +37,7 @@ namespace Biblioteca.Controllers
             Console.WriteLine("Digite sua Senha: ");
             string password = Console.ReadLine() ?? string.Empty;
 
-            usuarios.Add(new User {
+            _users.Add(new User {
                 UserName = nome,
                 Email = email, 
                 Password = CalculateMD5Hash(password)
@@ -32,7 +46,7 @@ namespace Biblioteca.Controllers
             Console.WriteLine("Usuário cadastrado com sucesso !");
         }
 
-        public void LoginUsuario(List<User> usuarios)
+        public void LoginUsuario()
         {
             Console.WriteLine("Digite seu Email: ");
             string email = Console.ReadLine() ?? string.Empty;
@@ -41,7 +55,7 @@ namespace Biblioteca.Controllers
             string senha = Console.ReadLine() ?? string.Empty;
             string SenhaHashDigitada = CalculateMD5Hash(senha);
 
-            var UserEncontrado = usuarios.FirstOrDefault(s => s.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && s.Password == SenhaHashDigitada);
+            var UserEncontrado = _users.FirstOrDefault(s => s.Email.Equals(email, StringComparison.OrdinalIgnoreCase) && s.Password == SenhaHashDigitada);
 
             if (UserEncontrado == null)
             {
@@ -51,7 +65,7 @@ namespace Biblioteca.Controllers
                 } else
                 {
                     Console.WriteLine($"\nSeja bem vindo ! {UserEncontrado.UserName}");
-                    Console.WriteLine("Redirecionando para o painel de aluguel de livros!");
+
                 }
             } else
             {

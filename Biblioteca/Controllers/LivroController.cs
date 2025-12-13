@@ -7,7 +7,7 @@ namespace Biblioteca.Controllers
 {
     public class LivroController
     {
-        private List<Livro> _livros;
+        private List<Livro> _livros = new List<Livro>();
 
         private EmprestimoController _emprestimoController;
 
